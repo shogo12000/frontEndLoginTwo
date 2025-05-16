@@ -3,10 +3,12 @@ import { createContext, useContext, useEffect, useState } from "react";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+ 
   const [user, setUser] = useState(false); // null = carregando; false = não logado
-
+  console.log("aaaa", user)
   useEffect(() => {
     console.log("Executando o CONTEXT")
+     
     const fetchUser = async () => {
       try {
         const res = await fetch("https://tmdbbackend.onrender.com/api/auth/me", {
@@ -17,6 +19,7 @@ export const AuthProvider = ({ children }) => {
         const data = await res.json();
  
         setUser(data.user); // ex: { email, name }
+        console.log(setUser)
       } catch {
         setUser(false); // não logado
       }

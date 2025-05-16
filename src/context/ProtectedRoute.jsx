@@ -5,7 +5,7 @@ export const ProtectedRoute = ({ children }) => {
   const { user } = useAuth();
  
   if (user === null) return <p>Carregando...</p>;
- 
+  alert(user);
   if (user === false) return <Navigate to="/" replace />;
 
   return children;
