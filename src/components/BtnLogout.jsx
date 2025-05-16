@@ -7,7 +7,7 @@ export default function BtnLogout() {
 
   const handleLogout = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/auth/logout", {
+      const res = await fetch("https://tmdbbackend.onrender.com/api/auth/logout", {
         method: "POST",
         credentials: "include",
       });

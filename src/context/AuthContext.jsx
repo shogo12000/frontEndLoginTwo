@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
     console.log("Executando o CONTEXT")
     const fetchUser = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/auth/me", {
+        const res = await fetch("https://tmdbbackend.onrender.com/api/auth/me", {
           credentials: "include", // importante para enviar o cookie
         });
         console.log(res);
