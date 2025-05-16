@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null); // null = carregando; false = não logado
+  const [user, setUser] = useState(false); // null = carregando; false = não logado
 
   useEffect(() => {
     console.log("Executando o CONTEXT")

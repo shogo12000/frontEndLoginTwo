@@ -12,7 +12,7 @@ function App() {
     const { credential } = credentialResponse;
 
     try {
-      const response = await fetch("http://localhost:3000/api/auth/google", {
+      const response = await fetch("https://tmdbbackend.onrender.com/api/auth/google", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
