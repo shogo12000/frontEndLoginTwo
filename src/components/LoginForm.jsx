@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 
-export default function LogimForm() {
+export default function LogimForm({formStatus}) {
   const [ login, setLogin ] = useState({ email: "", password: "" });
   const [ loginMsg, setLoginMsg ] = useState("");
   const { setUser } = useAuth();
@@ -65,6 +65,9 @@ export default function LogimForm() {
       </div>
       <div>
         <button className="py-1">Login</button>
+      </div>
+      <div className="flex justify-end" onClick={()=>formStatus((status)=>!status)}>
+        Register
       </div>
     </form>
   );
