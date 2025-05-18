@@ -9,6 +9,7 @@ export default function Movies() {
             method: "GET",
             credentials: "include",
         });
+        console.log(resp);
         const data = await resp.json();
         console.log(data);
       } catch (error) {
