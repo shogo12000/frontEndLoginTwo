@@ -7,6 +7,9 @@ import Profile from "./routes/Profile.jsx";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { AuthProvider } from "./context/AuthContext";
 import { ProtectedRoute, MainPage } from "./context/ProtectedRoute.jsx";
+import Movies from "./routes/Movies.jsx";
+import UserMainPage from "./routes/UserMainPage.jsx";
+import LoggedUserLayout from "./routes/LoggedUserLayout.jsx"
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -22,14 +25,19 @@ createRoot(document.getElementById("root")).render(
                 </MainPage>
               }
             />
+
             <Route
-              path="/profile"
+              path="/api"
               element={
                 <ProtectedRoute>
-                  <Profile />
+                  <LoggedUserLayout />
                 </ProtectedRoute>
               }
-            />
+            >
+              <Route index element={<UserMainPage/>} />
+              <Route path="profile" element={<Profile />} />
+              <Route path="movies" element={<Movies />} />
+            </Route>
           </Routes>
         </BrowserRouter>
       </AuthProvider>

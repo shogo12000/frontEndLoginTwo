@@ -5,9 +5,9 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
  
   const [user, setUser] = useState(false); // null = carregando; false = não logado
-  console.log("aaaa", user)
+ 
   useEffect(() => {
-    console.log("Executando o CONTEXT")
+ 
      
     const fetchUser = async () => {
       try {
