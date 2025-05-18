@@ -4,7 +4,7 @@ export default function Movies() {
   useEffect(() => {
     const fetchMovies = async() => {
       try {
-        const resp = fetch("https://tmdbbackend.onrender.com/api/auth/movies",{
+        const resp = await fetch("https://tmdbbackend.onrender.com/api/auth/movies",{
         //const resp = await fetch("http://localhost:3000/api/auth/movies",{
             method: "GET",
             credentials: "include",
