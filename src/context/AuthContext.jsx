@@ -6,11 +6,10 @@ export const AuthProvider = ({ children }) => {
  
   const [user, setUser] = useState(false); // null = carregando; false = não logado
  
-  useEffect(() => {
- 
-     
+  useEffect(() => { 
     const fetchUser = async () => {
       try {
+        //const res = await fetch("http://localhost:3000/api/auth/me",{
         const res = await fetch("https://tmdbbackend.onrender.com/api/auth/me", {
           credentials: "include", // importante para enviar o cookie
         });
