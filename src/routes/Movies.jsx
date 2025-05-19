@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function Movies() {
-    const [dataMovies, setDataMovies] = useState(null);
+  const [dataMovies, setDataMovies] = useState(null);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -26,13 +26,15 @@ export default function Movies() {
     fetchMovies();
   }, []);
 
-  return <>
-    <h1>Movies</h1>
+  return (
+    <>
+      <h1>Movies</h1>
 
-    <div>
-        {dataMovies.map((m)=>{
-            <p>{m.title}</p>
-        })}
-    </div>
-  </>
+      <div>
+        {dataMovies.map((m) => (
+          <p key={m.id}>{m.title}</p>
+        ))}
+      </div>
+    </>
+  );
 }
