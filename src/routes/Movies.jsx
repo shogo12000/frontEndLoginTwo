@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function Movies() {
-  const [dataMovies, setDataMovies] = useState(null);
+  const [dataMovies, setDataMovies] = useState([]);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -14,10 +14,10 @@ export default function Movies() {
             credentials: "include",
           }
         );
-        console.log(resp);
+ 
         const data = await resp.json();
         setDataMovies(data.results);
-        console.log(data);
+        console.log(data.results);
       } catch (error) {
         console.log("ERROR FETCHING MOVIES: ", error);
       }
@@ -29,7 +29,6 @@ export default function Movies() {
   return (
     <>
       <h1>Movies</h1>
-
       <div>
         {dataMovies.map((m) => (
           <p key={m.id}>{m.title}</p>
