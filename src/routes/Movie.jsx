@@ -32,7 +32,7 @@ export default function Movie() {
       <h1>{movieData.title}</h1>
       <img
         src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
-        alt={title}
+        alt={movieData.title}
         className="w-full h-auto mb-2 object-contain"
       />
       <button onClick={handleBack}>Voltar</button>
