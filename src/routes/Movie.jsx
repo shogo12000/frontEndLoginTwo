@@ -3,6 +3,7 @@ import { useEffect } from "react";
 
 export default function Movie() {
   const { id } = useParams();
+  const [movieData, setMovieData] = useState({})
   const navigate = useNavigate();
 
   const handleBack = () => {
@@ -14,9 +15,8 @@ export default function Movie() {
         try{
             const res = await fetch(`https://tmdbbackend.onrender.com/api/auth/movie/${id}`);
             //const res = await fetch(`http://localhost:3000/api/auth/movie/${id}`);
-            const data = await res.json();
-            console.log(data);
-            
+            const data = await res.json(); 
+            setMovieData(data);            
         }catch(err){
             console.error("Error ao carregar Filme: ", err)
         }
@@ -27,7 +27,7 @@ export default function Movie() {
 
   return (
     <>
-      <h1>My Movie</h1>
+      <h1>{movieData.title}</h1>
       <button onClick={handleBack}>Voltar</button>
     </>
   );
