@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-
+import { useEffect, useState } from "react";
+ 
 export default function Movie() {
   const { id } = useParams();
   const [movieData, setMovieData] = useState({})
