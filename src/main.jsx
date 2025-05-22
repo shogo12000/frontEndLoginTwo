@@ -9,7 +9,8 @@ import { AuthProvider } from "./context/AuthContext";
 import { ProtectedRoute, MainPage } from "./context/ProtectedRoute.jsx";
 import Movies from "./routes/Movies.jsx";
 import UserMainPage from "./routes/UserMainPage.jsx";
-import LoggedUserLayout from "./routes/LoggedUserLayout.jsx"
+import LoggedUserLayout from "./routes/LoggedUserLayout.jsx";
+import Movie from "./routes/Movie.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -26,6 +27,13 @@ createRoot(document.getElementById("root")).render(
               }
             />
 
+            {/* <Route
+              path="/movie/:id"
+              element={
+                  <Movie />
+              }
+            /> */}
+
             <Route
               path="/api"
               element={
@@ -34,9 +42,10 @@ createRoot(document.getElementById("root")).render(
                 </ProtectedRoute>
               }
             >
-              <Route index element={<UserMainPage/>} />
+              <Route index element={<UserMainPage />} />
               <Route path="profile" element={<Profile />} />
               <Route path="movies" element={<Movies />} />
+              <Route path="movie/:id" element={<Movie />} />
             </Route>
           </Routes>
         </BrowserRouter>
