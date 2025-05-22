@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import MovieBox from "../components/MovieBox";
 
 export default function Movies() {
   const [dataMovies, setDataMovies] = useState([]);
@@ -14,7 +15,7 @@ export default function Movies() {
             credentials: "include",
           }
         );
- 
+
         const data = await resp.json();
         setDataMovies(data.results);
         console.log(data.results);
@@ -29,9 +30,9 @@ export default function Movies() {
   return (
     <>
       <h1>Movies</h1>
-      <div>
+      <div className="max-w-[1200px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         {dataMovies.map((m) => (
-          <p key={m.id}>{m.title}</p>
+          <MovieBox key={m.id} movie={m}/>
         ))}
       </div>
     </>
