@@ -29,13 +29,17 @@ export default function Movie() {
 
   return (
     <>
-      <h1>{movieData.title}</h1>
-      <img
-        src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
-        alt={movieData.title}
-        className="w-full h-auto mb-2 object-contain"
-      />
-      <button onClick={handleBack}>Voltar</button>
+      <div className="flex flex-col gap-5">
+        <h1>{movieData.title}</h1>
+        <div className="flex justify-center">
+          <img
+            src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
+            alt={movieData.title}
+            className="max-w-[300px] w-full h-auto mb-2 object-contain"
+          />
+        </div>
+        <button onClick={handleBack} className="mx-auto">Voltar</button>
+      </div>
     </>
   );
 }
